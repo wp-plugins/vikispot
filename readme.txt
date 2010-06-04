@@ -3,7 +3,7 @@ Contributors: vikispot
 Tags: widget, content, plugin, sidebar, images, videos, blogs, news, search, google
 Requires at least: 2.8
 Tested up to: 2.9
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 VikiSpot let you embed dynamic content, such as related images, videos, news, and blogs to your website.
 
@@ -32,6 +32,10 @@ The image, sidebar, and related articles are all dynamic content. These content 
 
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Added new style "Parent Simple" that set simple style to the tabs but still inherit all default page style.
 
 = 1.0.3 =
 
