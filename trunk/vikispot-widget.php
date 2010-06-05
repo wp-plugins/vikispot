@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.4
+ * Version: 1.0.5
  * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
  * Description: Content widget by VikiSpot.
  * Author: VikiSpot
@@ -152,6 +152,14 @@ class VikiSpotContentWidget extends WP_Widget
 		echo  __($label) . '</label></p>';		
 	}
 	
+	function makeHelpBox(){
+	
+		echo '<p>Help: <a href="http://www.vikispot.com" target="_blank">WidgetMaker</a>, <a href="http://getsatisfaction.com/vikispot" target="_blank">Support</a></p>';
+		echo '<p>Plugin News: <a href="http://twitter.com/vikispot" target="_blank">Twitter</a>, <a href="http://www.facebook.com/apps/application.php?id=261143120269&v=wall" target="_blank">Facebook</a></p>';
+	
+	}
+	
+	
 	function checked($checked){
 		if($checked == 'on') return 'true';
 		else return 'false';
@@ -217,6 +225,7 @@ class VikiSpotContentWidget extends WP_Widget
 		$displays = array('Default', '10px', '11px', '12px', '13px', '14px', '15px', '16px', '17px', '18px', '19px', '20px');
 		$this->makeComboField('font', 'Font', $values, $displays, $font);
 		
+		$this->makeHelpBox();
 		
 	}
 	
