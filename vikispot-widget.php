@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.5
+ * Version: 1.0.6
  * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
  * Description: Content widget by VikiSpot.
  * Author: VikiSpot
@@ -45,6 +45,8 @@ class VikiSpotContentWidget extends WP_Widget
 		
 		$title = apply_filters('widget_title', $instance['title']);
 		
+		$label = $instance['label'];
+		
 		$count = $instance['count'];
 		$line = $instance['line'];
 		
@@ -62,11 +64,13 @@ class VikiSpotContentWidget extends WP_Widget
 		$css = $instance['css'];
 		$font = $instance['font'];
 		
-		
+		if($label == ''){
+			$label = $title;
+		}
 
 		echo $before_widget;
 		
-		echo $before_title . '<span class="vs-name">'.$title.'</span>'. $after_title;
+		echo $before_title . '<span class="vs-name">'.$label.'</span>'. $after_title;
 		
 
 	
@@ -83,6 +87,7 @@ class VikiSpotContentWidget extends WP_Widget
 	function update($new_instance, $old_instance){
 		$instance = $old_instance;
 		$instance['title'] = strip_tags(stripslashes($new_instance['title']));
+		$instance['label'] = strip_tags(stripslashes($new_instance['label']));
 		$instance['count'] = $new_instance['count'];
 		$instance['line'] = $new_instance['line'];
 		$instance['news'] = $new_instance['news'];
@@ -167,7 +172,7 @@ class VikiSpotContentWidget extends WP_Widget
 	
 	function setDefault($instance){
 		$instance = wp_parse_args( (array) $instance, array('count'=>'8', 'line'=>'4', 'name'=>'', 'news'=>'', 'video'=>'on', 'image'=>'', 'blog'=>'', 'selected'=>'video', 
-		'compact'=>'', 'css'=>'', 'font'=>'') );
+		'compact'=>'', 'css'=>'simple', 'font'=>'', 'label'=>'') );
 		return $instance;
 	}
 
@@ -189,10 +194,13 @@ class VikiSpotContentWidget extends WP_Widget
 		$css = $instance['css'];
 		$font = $instance['font'];
 		
+		
+		$label = $instance['label'];
+		$desc = '(The header above the widget. If not specified, the topic will be shown instead.)';
+		$this->makeTextField('label', 'Label', $label, $desc);
+		
 
-		$desc = '(Leave blank to use post-specific topic. To specifiy a post topic, add a custom field with the name "vikispot" when editing post.)';
-		
-		
+		$desc = '(Leave blank to use post-specific topic. To specifiy a post topic, add a custom field with the name "vikispot" when editing post.)';		
 		$this->makeTextField('title', 'Topic', $title, $desc);		
 		
 		
@@ -229,10 +237,6 @@ class VikiSpotContentWidget extends WP_Widget
 		
 	}
 	
-	
-	
-	
-
 }
 	
 	
