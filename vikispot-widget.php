@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.6
+ * Version: 1.0.7
  * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
  * Description: Content widget by VikiSpot.
  * Author: VikiSpot
@@ -229,8 +229,8 @@ class VikiSpotContentWidget extends WP_Widget
 		$this->makeComboField('css', 'Style', $values, $displays, $css);
 		
 		
-		$values = array('', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20');
-		$displays = array('Default', '10px', '11px', '12px', '13px', '14px', '15px', '16px', '17px', '18px', '19px', '20px');
+		$values = array('', '12', '13', '14', '15', '16', '17', '18');
+		$displays = array('Default', '12px', '13px', '14px', '15px', '16px', '17px', '18px');
 		$this->makeComboField('font', 'Font', $values, $displays, $font);
 		
 		$this->makeHelpBox();
