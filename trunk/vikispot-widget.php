@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.7
+ * Version: 1.0.8
  * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
  * Description: Content widget by VikiSpot.
  * Author: VikiSpot
@@ -71,8 +71,8 @@ class VikiSpotContentWidget extends WP_Widget
 		echo $before_widget;
 		
 		echo $before_title . '<span class="vs-name">'.$label.'</span>'. $after_title;
-		
 
+		$title = VikiSpotPickTopic($title);
 	
 		echo '<div class="vs-content" name="' . $title .'" news="'.$news.'" video="'.$video.'" image="'.$image .'" blog="'. $blog . 
 		'" compact="' . $compact .
@@ -82,6 +82,7 @@ class VikiSpotContentWidget extends WP_Widget
 	}
 	
 	
+
 	
 
 	function update($new_instance, $old_instance){
@@ -239,6 +240,57 @@ class VikiSpotContentWidget extends WP_Widget
 	
 }
 	
+function VikiSpotPickTopic($topic){
+
+	global $post;
+
+	
+	if($topic != ''){
+		return $topic;
+	}
+	
+	$custom_fields = get_post_custom();
+  	$topics = $custom_fields['vikispot'];
+  	
+  	if($topics){  	
+	  	foreach ( $topics as $value ){		
+	  		return $value;
+	  	}
+  	}
+	
+	/*
+	
+	//Disabled tags and cats for now
+	$posttags = get_the_tags();
+	
+	if ($posttags) {
+		foreach($posttags as $tag) {
+			//echo $tag->name . ' '; 
+			return $tag->name;
+		}
+	}
+
+	
+	$cats = get_the_category();
+	
+	if($cats){
+		foreach($cats as $category) { 
+		    //echo $category->cat_name . ' '; 
+		    if($category->cat_name != 'Uncategorized'){
+		    	return $category->cat_name;
+		    }
+		} 
+	
+	}
+	*/
+
+	
+	
+	return $post->post_title;
+	
+	
+}	
+	
 	
 function VikiSpotInit() {
 	register_widget('VikiSpotContentWidget');
@@ -247,7 +299,9 @@ add_action('widgets_init', 'VikiSpotInit');
 
 function VikiSpotScriptsInit(){
 
-	if(is_active_widget(false, false, 'vikispot') && !is_admin()){	 
+	//if(is_active_widget(false, false, 'vikispot') && !is_admin()){	 
+
+	if(!is_admin()){	 
 		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '', true);
 	}
 
@@ -257,22 +311,20 @@ function VikiSpotScriptsInit(){
 
 add_action('wp_print_scripts', 'VikiSpotScriptsInit');
 
-function VikiSpotMeta($text){
-	$custom_fields = get_post_custom();
-  	$topics = $custom_fields['vikispot'];
-  	
-  	if($topics){  	
-	  	foreach ( $topics as $value ){		
-	  		$tag = '<span class="vs-topic" style="display:none;">'.$value.'</span>';
-	  		return $text . $tag;
-	  	}
-  	}
-  	
-  	return $text;
-
+function VikiSpotTopic($text){
 	
+	$topic = VikiSpotPickTopic('');
+	if($topic){
+		$tag1 = '<div class="vs-topic" topic="'.$topic.'">';
+		$tag2 = '</div>';
+		return $tag1 . $text . $tag2;
+	}
+	
+	return $text;
 }
-add_filter('the_content', 'VikiSpotMeta');
+
+add_filter('the_content', 'VikiSpotTopic');
+
 
 
 
