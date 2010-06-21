@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.11
+ * Version: 1.0.12
  * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
  * Description: Content widget by VikiSpot.
  * Author: VikiSpot
@@ -73,9 +73,11 @@ class VikiSpotContentWidget extends WP_Widget
 		echo $before_title . '<span class="vs-name">'.$label.'</span>'. $after_title;
 
 		$title = VikiSpotPickTopic($title);
-	
+		
+		$link = get_permalink();
+		
 		echo '<div class="vs-content" name="' . $title .'" news="'.$news.'" video="'.$video.'" image="'.$image .'" blog="'. $blog . 
-		'" compact="' . $compact .
+		'" compact="' . $compact . '" link="' . $link .
 		'" selected="'.$selected.'" count="'.$count.'" line="'.$line.'" css="'.$css.'" font="'.$font.'"></div>';
 		
 		echo $after_widget;
@@ -302,7 +304,7 @@ function VikiSpotScriptsInit(){
 	//if(is_active_widget(false, false, 'vikispot') && !is_admin()){	 
 
 	if(!is_admin()){	 
-		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.11', true);
+		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.12', true);
 	}
 
 }
@@ -314,8 +316,10 @@ add_action('wp_print_scripts', 'VikiSpotScriptsInit');
 function VikiSpotTopic($text){
 	
 	$topic = VikiSpotPickTopic('');
+	$link = get_permalink();
+	
 	if($topic){
-		$tag1 = '<div class="vs-topic" topic="'.$topic.'">';
+		$tag1 = '<div class="vs-topic" topic="'.$topic.'" link="' . $link . '">';
 		$tag2 = '</div>';
 		return $tag1 . $text . $tag2;
 	}
