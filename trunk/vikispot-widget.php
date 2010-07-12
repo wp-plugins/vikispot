@@ -388,6 +388,7 @@ function VikiSpotHeadInit(){
 	}
 	$desc = VikiSpotPickDesc();
 	if($desc != null){
+		$desc = strip_tags($desc);
 		echo '<meta property="og:description" content="' . $desc . '"/>';
 	}
 	
