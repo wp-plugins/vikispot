@@ -72,7 +72,7 @@ class VikiSpotContentWidget extends WP_Widget
 		
 		echo $before_title . '<span class="vs-name">'.$label.'</span>'. $after_title;
 
-		$title = VikiSpotPickTopic($title);
+		$title = VikiSpotPickTopic($title, VikiSpotTopPost());
 		
 		$link = get_permalink();
 		
@@ -242,16 +242,47 @@ class VikiSpotContentWidget extends WP_Widget
 	
 }
 	
-function VikiSpotPickTopic($topic){
+function VikiSpotTopPost(){
 
+	global $posts;
 	global $post;
-
 	
+
+	if($posts != null && count($posts) > 0){
+		$result = $posts[0];
+	}else{
+		$result = $post;
+	}
+	
+	
+	return $result;
+}	
+
+function VikiSpotPost(){
+
+	global $posts;
+	global $post;
+	
+	if($posts != null && count($posts) >= 2){
+		$result = null;
+	}else{
+		$result = $post;
+	}
+	
+	
+	return $result;
+}
+	
+	
+function VikiSpotPickTopic($topic, $post){
+
+	//$post = VikiSpotTopPost();
+
 	if($topic != ''){
 		return $topic;
 	}
 	
-	$custom_fields = get_post_custom();
+	$custom_fields = get_post_custom($post->ID);
   	$topics = $custom_fields['vikispot'];
   	
   	if($topics){  	
@@ -294,10 +325,49 @@ function VikiSpotPickTopic($topic){
 }	
 	
 	
+function VikiSpotPickTb(){
+
+	if(!function_exists('get_post_thumbnail_id')){
+		return null;
+	}
+
+
+	$post = VikiSpotPost();
+
+	if($post == null){
+		return null;
+	}
+
+	$post_thumbnail_id = get_post_thumbnail_id($post->ID);
+	$tb_array = wp_get_attachment_image_src($post_thumbnail_id, 0);
+	$tb;
+	
+	if($tb_array != null){
+		$tb = $tb_array[0];	
+	}	
+	
+	return $tb;
+}	
+
+
+function VikiSpotPickDesc(){
+
+	$post = VikiSpotPost();
+	
+	if($post == null){
+		return null;
+	}
+	
+	return $post->post_excerpt;
+
+}
+	
 function VikiSpotInit() {
 	register_widget('VikiSpotContentWidget');
 }	
+
 add_action('widgets_init', 'VikiSpotInit');
+
 
 function VikiSpotScriptsInit(){
 
@@ -309,13 +379,28 @@ function VikiSpotScriptsInit(){
 
 }
 
-
-
 add_action('wp_print_scripts', 'VikiSpotScriptsInit');
+
+function VikiSpotHeadInit(){
+	$tb = VikiSpotPickTb();
+	if($tb != null){
+		echo '<meta property="og:image" content="' . $tb . '"/>';
+	}
+	$desc = VikiSpotPickDesc();
+	if($desc != null){
+		echo '<meta property="og:description" content="' . $desc . '"/>';
+	}
+	
+}
+
+
+add_action('wp_head', 'VikiSpotHeadInit');
+
 
 function VikiSpotTopic($text){
 	
-	$topic = VikiSpotPickTopic('');
+	global $post;
+	$topic = VikiSpotPickTopic('', $post);
 	$link = get_permalink();
 	
 	if($topic){
