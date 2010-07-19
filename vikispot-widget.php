@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.18
+ * Version: 1.0.19
  * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
  * Description: Content Widget by VikiSpot.
  * Author: VikiSpot
@@ -75,6 +75,8 @@ class VikiSpotContentWidget extends WP_Widget
 		$title = VikiSpotPickTopic($title, VikiSpotTopPost());
 		
 		$link = get_permalink();
+		
+		echo '<noscript>JavaScript disabled. Continue to <a href="http://www.vikispot.com" title="VikiSpot" target="_blank">' . $title . '</a>.</noscript>';
 		
 		echo '<div class="vs-content" name="' . $title .'" news="'.$news.'" video="'.$video.'" image="'.$image .'" blog="'. $blog . 
 		'" compact="' . $compact . '" link="' . $link .
@@ -166,11 +168,12 @@ class VikiSpotContentWidget extends WP_Widget
 		//echo '<p>Plugin News: <a href="http://twitter.com/vikispot" target="_blank">Twitter</a>, <a href="http://www.facebook.com/pages/VikiSpot/264367216676" target="_blank">Facebook</a></p>';
 		//echo '<p>Tips: &nbsp;<a href="http://www.vikispot.com" target="_blank">WidgetMaker</a>, <a href="http://about.vikispot.com/wordpress/dynamic-content/" target="_blank">Support</a></p>';	
 		
-		$help = '<p>Tips:&nbsp;'
+		$help = '<div>Tools &#38; Tips:</div><p>'
 		. '<a href="http://www.vikispot.com" target="_blank">Widget Maker</a>, '
 		. '<a title="Embedding Dynamic Content in your Blog" target="_blank" href="http://about.vikispot.com/wordpress/dynamic-content/">Embedding Content</a>, '
 		. '<a title="Improving Items in the Content Widget" target="_blank" href="http://about.vikispot.com/wordpress/improving-items-in-the-content-widget/">Improving Content</a>, '
-		. '<a title="Optimize your Blog for Social Listing" target="_blank" href="http://about.vikispot.com/wordpress/optimize-your-blog-for-social-listing/">Social Listing</a> '
+		. '<a title="Optimize your Blog for Social Listing" target="_blank" href="http://about.vikispot.com/wordpress/optimize-your-blog-for-social-listing/">Social Listing</a>, '
+		. '<a href="http://www.vikispot.com/p/fpreview" target="_blank">Social Listing Preview</a> '
 		. '</p>';
 		echo $help;
 	}
@@ -379,10 +382,8 @@ add_action('widgets_init', 'VikiSpotInit');
 
 function VikiSpotScriptsInit(){
 
-	//if(is_active_widget(false, false, 'vikispot') && !is_admin()){	 
-
 	if(!is_admin()){	 
-		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.18', true);
+		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.19', true);
 	}
 
 }
