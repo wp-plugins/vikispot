@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.19
+ * Version: 1.0.20
  * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
  * Description: Content Widget by VikiSpot.
  * Author: VikiSpot
@@ -383,7 +383,7 @@ add_action('widgets_init', 'VikiSpotInit');
 function VikiSpotScriptsInit(){
 
 	if(!is_admin()){	 
-		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.19', true);
+		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.20', true);
 	}
 
 }
