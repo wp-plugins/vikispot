@@ -3,7 +3,7 @@ Contributors: vikispot
 Tags: widget, content, plugin, sidebar, images, videos, blogs, news, search, google, related, links, Post, posts, page
 Requires at least: 2.8
 Tested up to: 3.0
-Stable tag: 1.0.20
+Stable tag: 1.0.21
 
 VikiSpot let you embed related dynamic content, such as related images, videos, news, and blogs to your website.
 
@@ -14,15 +14,13 @@ VikiSpot let you embed related dynamic content, such as related images, videos, 
 Demo and blogging tips:
 <ul>
 <li><a title="Embedding Dynamic Content in your Blog" href="http://about.vikispot.com/wordpress/dynamic-content/">Embedding Dynamic Content in WordPress</a></li>
-<li><a title="Improving Items in the Content Widget" href="http://about.vikispot.com/wordpress/improving-items-in-the-content-widget/">Improving Items in the Content Widget</a></li>
-<li><a title="Optimize your Blog for Social Listing" href="http://about.vikispot.com/wordpress/optimize-your-blog-for-social-listing/">Optimize your Blog for Social Listing</a></li>
 </ul>
 
 Features:
 <ul>
 <li>
 Dynamic Content
-<ul>
+<ul style="margin-bottom: 0px;">
 <li>Related News</li>
 <li>Related Videos</li>
 <li>Related Images</li>
@@ -37,7 +35,7 @@ Dynamic Content
 
 
 For html markup to directly embed content to your post or template, please visit:
-http://www.vikispot.com
+http://www.vikispot.com/widgetmaker
 
 
 == Installation ==
@@ -54,6 +52,11 @@ The image, sidebar, and related articles are all dynamic content. These content 
 
 
 == Changelog ==
+
+= 1.0.21 =
+
+* Update help links.
+
 
 = 1.0.19 =
 
