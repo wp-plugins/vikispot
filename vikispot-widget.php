@@ -1,8 +1,8 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 1.0.21
- * Plugin URI: http://about.vikispot.com/wordpress/dynamic-content/
+ * Version: 1.0.22
+ * Plugin URI: http://wordpress.pekca.com/dynamic-content/
  * Description: Content Widget by VikiSpot.
  * Author: VikiSpot
  * Author URI: http://www.vikispot.com
@@ -167,7 +167,7 @@ class VikiSpotContentWidget extends WP_Widget
 		
 		$help = '<div>Tools &#38; Tips:</div><p>'
 		. '<a href="http://www.vikispot.com/widgetmaker" target="_blank">Widget Maker</a>, '
-		. '<a title="Embedding Dynamic Content in your Blog" target="_blank" href="http://about.vikispot.com/wordpress/dynamic-content/">Embedding Content</a> '
+		. '<a title="Embedding Dynamic Content in your Blog" target="_blank" href="http://wordpress.pekca.com/dynamic-content/">Embedding Content</a> '
 		//. '<a title="Improving Items in the Content Widget" target="_blank" href="http://about.vikispot.com/wordpress/improving-items-in-the-content-widget/">Improving Content</a>, '
 		//. '<a title="Optimize your Blog for Social Listing" target="_blank" href="http://about.vikispot.com/wordpress/optimize-your-blog-for-social-listing/">Social Listing</a>, '
 		//. '<a href="http://www.vikispot.com/p/fpreview" target="_blank">Social Listing Preview</a> '
@@ -380,7 +380,7 @@ add_action('widgets_init', 'VikiSpotInit');
 function VikiSpotScriptsInit(){
 
 	if(!is_admin()){	 
-		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.20', true);
+		wp_enqueue_script('content.js', 'http://cdn.vikispot.com/widget/content.js', '', '1.0.22', true);
 	}
 
 }
