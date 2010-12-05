@@ -2,8 +2,8 @@
 Contributors: vikispot
 Tags: widget, content, plugin, sidebar, images, videos, blogs, news, search, google, related, links, Post, posts, page
 Requires at least: 2.8
-Tested up to: 3.0
-Stable tag: 1.0.22
+Tested up to: 3.0.2
+Stable tag: 2.0.1
 
 VikiSpot let you embed related dynamic content, such as related images, videos, news, and blogs to your website.
 
@@ -11,9 +11,11 @@ VikiSpot let you embed related dynamic content, such as related images, videos, 
 
 VikiSpot let you embed related dynamic content, such as related images, videos, news, and blogs to your posts.
 
-Demo and blogging tips:
+Demo:
 <ul>
-<li><a title="Embedding Dynamic Content in your Blog" href="http://wordpress.pekca.com/dynamic-content/">Embedding Dynamic Content in WordPress</a></li>
+<li><a title="Embedding Dynamic Content in your Blog" href="http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog">WordPress Demo</a></li>
+<li><a title="Widget Maker" href="http://www.vikispot.com/widgetmaker">Live Demo Playground</a></li>
+<li><a title="Multi Languages Demo" href="http://www.vikispot.com/demo/multilang">Multi Languages Demo</a></li>
 </ul>
 
 Features:
@@ -23,19 +25,15 @@ Dynamic Content
 <ul style="margin-bottom: 0px;">
 <li>Related News</li>
 <li>Related Videos</li>
-<li>Related Images</li>
 <li>Related Blogs</li>
 </ul>
 </li>
-<li>User Rating</li>
+<li><a href="http://www.vikispot.com/demo/multilang">Support Multiple Languages</a></li>
 <li>Inherit Theme & Style</li>
 <li>Automatically List Blog on VikiSpot</li>
-<li>Support Open Graph Protocol (Facebook)</li>
 </ul>
 
 
-For html markup to directly embed content to your post or template, please visit:
-http://www.vikispot.com/widgetmaker
 
 
 == Installation ==
@@ -50,8 +48,14 @@ For setting post specific topic, add a custom attribute "vikispot" to your post 
 1. This screen shot shows how VikiSpot widget looks like in a real WordPress blog.
 The image, sidebar, and related articles are all dynamic content. These content inherit the style of the parent page.
 
+2. VikiSpot supports different languages.
+
 
 == Changelog ==
+
+= 2.0.1 =
+
+* Version 2. New Stream Widget. New layout for Content Widget. Support multiple languages.
 
 = 1.0.22 =
 
