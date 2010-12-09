@@ -1,9 +1,9 @@
 === VikiSpot ===
 Contributors: vikispot
-Tags: widget, content, plugin, sidebar, images, videos, blogs, news, search, google, related, links, Post, posts, page
+Tags: widget, content, plugin, sidebar, images, videos, blogs, news, search, google, related, links, Post, posts, page, media, feed
 Requires at least: 2.8
 Tested up to: 3.0.2
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 VikiSpot let you embed related dynamic content, such as related images, videos, news, and blogs to your website.
 
@@ -26,6 +26,13 @@ Dynamic Content
 <li>Related News</li>
 <li>Related Videos</li>
 <li>Related Blogs</li>
+</ul>
+</li>
+<li>
+Widget Types
+<ul style="margin-bottom: 0px;">
+<li>Content Widget</li>
+<li>Stream Widget</li>
 </ul>
 </li>
 <li><a href="http://www.vikispot.com/demo/multilang">Support Multiple Languages</a></li>
@@ -52,6 +59,10 @@ The image, sidebar, and related articles are all dynamic content. These content 
 
 
 == Changelog ==
+
+= 2.0.2 =
+
+Update description. Update video thumbnail position to be centered with summary lines is 4+.
 
 = 2.0.1 =
 

@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 2.0.1
+ * Version: 2.0.2
  * Plugin URI: http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog
  * Description: Content Widgets by VikiSpot.
  * Author: VikiSpot
@@ -150,9 +150,9 @@ function VikiSpotScriptsInit(){
 		$debug = $_GET['vsdebug'];
 		
 		if('true' == $debug){
-			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.1', true);
+			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.2', true);
 		}else{
-			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.1', true);
+			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.2', true);
 		}
 		
 		
