@@ -55,6 +55,7 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		$this->echoParam("lang", $lang);
 		$this->echoParam("imgw", $imgw);
 		$this->echoParam("desc", $desc);
+		$this->echoParam("grid", $grid);
 		
 		$this->echoParam("selected", $selected);
 		
@@ -66,7 +67,7 @@ class VikiSpotContentWidget extends VikiSpotWidget
 
 	function defaultParams(){
 		return array('count'=>'8', 'line'=>'4', 'name'=>'', 'news'=>'', 'video'=>'', 'image'=>'', 'blog'=>'', 'selected'=>'news', 
-		'compact'=>'', 'css'=>'simple', 'font'=>'', 'label'=>'', 'lang'=>'en', 'desc'=>'4', 'imgw'=>'80');
+		'compact'=>'', 'css'=>'simple', 'font'=>'', 'label'=>'', 'lang'=>'en', 'desc'=>'4', 'imgw'=>'80', 'grid'=>'');
 	}
 	
 	function echoForm($instance){
@@ -91,8 +92,13 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		
 		$this->makeCheckField('blog', 'Blog', $blog);
 		
+		/*
 		$values = array('news', 'video', 'image', 'blog');
 		$displays = array('News', 'Video', 'Image', 'Blog');
+		*/
+		$values = array('news', 'video', 'blog');
+		$displays = array('News', 'Video', 'Blog');
+		
 		
 		$this->makeComboField('selected', 'Selected', $values, $displays, $selected);
 		
@@ -112,8 +118,13 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		$this->makeComboField('count', 'Items Count', $values, $displays, $count);
 		*/
 		
+		$values = array('', '2', '3', '4');
+		$displays = array('None', '2 items', '3 items', '4 items');
+		$this->makeComboField('grid', 'Column', $values, $displays, $grid);
+		
+		
 		$values = array('1', '2', '3', '4', '5', '6', '7', '8');
-		$displays = $values;
+		$displays = array('1 item', '2 items', '3 items', '4 items', '5 items', '6 items', '7 items', '8 items');
 		$this->makeComboField('line', 'Display Count', $values, $displays, $line);
 		
 		
