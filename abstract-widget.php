@@ -1,6 +1,6 @@
 <?php
  
-abstract class VikiSpotWidget extends WP_Widget
+class VikiSpotWidget extends WP_Widget
 {
 	
 	/*
@@ -24,8 +24,10 @@ abstract class VikiSpotWidget extends WP_Widget
 		
 	}
 	
+	//abstract method
+	function echoWidget($args, $instance){
 	
-	abstract function echoWidget($args, $instance);
+	}
 	
 	
 	function update($new_instance, $old_instance){
@@ -61,7 +63,9 @@ abstract class VikiSpotWidget extends WP_Widget
 		return $instance;
 	}
 	
-	abstract function defaultParams();
+	//abstract method
+	function defaultParams(){
+	}
 
 	function checkDisabled(){
 	
