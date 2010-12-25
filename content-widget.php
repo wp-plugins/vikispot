@@ -57,6 +57,7 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		$this->echoParam("desc", $desc);
 		$this->echoParam("grid", $grid);
 		$this->echoParam("count", $count);
+		$this->echoParam("vsize", $vsize);
 		
 		$this->echoParam("selected", $selected);
 		
@@ -68,7 +69,7 @@ class VikiSpotContentWidget extends VikiSpotWidget
 
 	function defaultParams(){
 		return array('count'=>'8', 'line'=>'4', 'name'=>'', 'news'=>'', 'video'=>'', 'image'=>'', 'blog'=>'', 'selected'=>'news', 
-		'compact'=>'', 'css'=>'simple', 'font'=>'', 'label'=>'', 'lang'=>'en', 'desc'=>'4', 'imgw'=>'80', 'grid'=>'1');
+		'compact'=>'', 'css'=>'simple', 'font'=>'', 'label'=>'', 'lang'=>'en', 'desc'=>'4', 'imgw'=>'80', 'grid'=>'1', 'vsize'=>'');
 	}
 	
 	function echoForm($instance){
@@ -129,6 +130,10 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		$displays = array('1 item', '2 items', '3 items', '4 items', '5 items', '6 items', '7 items', '8 items');
 		$this->makeComboField('count', 'Items Count', $values, $displays, $count);
 			
+			
+		$values = array('', '640', '853', '1280');
+		$displays = array('None', '640', '853', '1280');
+		$this->makeComboField('vsize', 'Video Player Size', $values, $displays, $vsize);	
 		
 		$values = array('1', '2', '3', '4', '5', '6', '7', '0');
 		$displays = array('1 line', '2 lines', '3 lines', '4 lines', '5 lines', '6 lines', '7 lines', 'Flexible');
