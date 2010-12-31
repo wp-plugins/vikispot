@@ -32,7 +32,10 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		
 		echo $before_title . '<span class="vs-name">'.$label.'</span>'. $after_title;
 
-		$title = VikiSpotPickTopic($title, VikiSpotTopPost());
+		$topPost = VikiSpotTopPost();
+
+		$name = VikiSpotPickName($title, $topPost);
+		$title = VikiSpotPickTopic($title, $topPost);
 		
 		$link = get_permalink();
 		
@@ -43,7 +46,8 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		
 		$this->echoHead('vs-content');
 		
-		$this->echoParam("name", $title);
+		$this->echoParam("name", $name);
+		$this->echoParam("topic", $title);
 		$this->echoParam("news", $news);
 		$this->echoParam("video", $video);
 		$this->echoParam("blog", $blog);

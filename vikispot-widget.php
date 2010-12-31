@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 2.0.7
+ * Version: 2.0.8
  * Plugin URI: http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog
  * Description: Content Widgets by VikiSpot.
  * Author: VikiSpot
@@ -43,15 +43,12 @@ function VikiSpotPost(){
 	return $result;
 }
 	
-	
-function VikiSpotPickTopic($topic, $post){
-
-	//$post = VikiSpotTopPost();
+function VikiSpotPickName($topic, $post){
 
 	if($topic != ''){
 		return $topic;
 	}
-	
+
 	$custom_fields = get_post_custom($post->ID);
   	$topics = $custom_fields['vikispot'];
   	
@@ -60,6 +57,17 @@ function VikiSpotPickTopic($topic, $post){
 	  		return $value;
 	  	}
   	}
+  	
+  	return '';
+}	
+	
+function VikiSpotPickTopic($topic, $post){
+
+	if($topic != ''){
+		return $topic;
+	}
+	
+
 	
 	/*
 	
@@ -150,13 +158,13 @@ function VikiSpotScriptsInit(){
 		$debug = $_GET['vsdebug'];
 		
 		if('1' == $debug){
-			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.7', true);
+			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.8', true);
 		}else if('2' == $debug){
-			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/widget/contentv2.js', '', '2.0.7', true);
+			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/widget/contentv2.js', '', '2.0.8', true);
 		}else{
-			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.7', true);
+			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.8', true);
 		}
-		
+		 
 		
 	}
 	
