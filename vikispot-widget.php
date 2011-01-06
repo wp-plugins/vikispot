@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 2.0.8
+ * Version: 2.0.9
  * Plugin URI: http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog
  * Description: Content Widgets by VikiSpot.
  * Author: VikiSpot
@@ -43,63 +43,52 @@ function VikiSpotPost(){
 	return $result;
 }
 	
+function VikiSpotClean($str){
+	$r = strip_tags(stripslashes($str));
+	$r = preg_replace("/[\"<>]/", "", $r);	
+	return $r;
+}	
+	
+	
 function VikiSpotPickName($topic, $post){
 
-	if($topic != ''){
-		return $topic;
-	}
+	$result = '';
 
-	$custom_fields = get_post_custom($post->ID);
-  	$topics = $custom_fields['vikispot'];
-  	
-  	if($topics){  	
-	  	foreach ( $topics as $value ){		
-	  		return $value;
+	if($topic != ''){
+		$result = $topic;
+	}else{
+
+		$custom_fields = get_post_custom($post->ID);
+	  	$topics = $custom_fields['vikispot'];
+	  	
+	  	if($topics){  	
+		  	foreach ( $topics as $value ){		
+		  		$result = $value;
+		  		break;
+		  	}
 	  	}
+	  	  	
   	}
   	
-  	return '';
+  	return VikiSpotClean($result);
 }	
 	
 function VikiSpotPickTopic($topic, $post){
 
+	$result = '';
+
 	if($topic != ''){
-		return $topic;
+		$result = $topic;
+	}else{
+		$result = $post->post_title;
 	}
 	
-
+	return VikiSpotClean($result);
 	
-	/*
+}	
 	
-	//Disabled tags and cats for now
-	$posttags = get_the_tags();
-	
-	if ($posttags) {
-		foreach($posttags as $tag) {
-			//echo $tag->name . ' '; 
-			return $tag->name;
-		}
-	}
-
-	
-	$cats = get_the_category();
-	
-	if($cats){
-		foreach($cats as $category) { 
-		    //echo $category->cat_name . ' '; 
-		    if($category->cat_name != 'Uncategorized'){
-		    	return $category->cat_name;
-		    }
-		} 
-	
-	}
-	*/
-
-	
-	
-	return $post->post_title;
-	
-	
+function VikiSpotSubmit(){
+	return is_single();
 }	
 	
 	
@@ -158,11 +147,11 @@ function VikiSpotScriptsInit(){
 		$debug = $_GET['vsdebug'];
 		
 		if('1' == $debug){
-			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.8', true);
+			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.9', true);
 		}else if('2' == $debug){
-			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/widget/contentv2.js', '', '2.0.8', true);
+			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/widget/contentv2.js', '', '2.0.9', true);
 		}else{
-			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.8', true);
+			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.9', true);
 		}
 		 
 		

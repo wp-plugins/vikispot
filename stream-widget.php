@@ -9,6 +9,8 @@ class VikiSpotStreamWidget extends VikiSpotWidget
 		$this->WP_Widget('vikispot-stream', __('VikiSpot (Stream)'), $widget_ops, $control_ops);
 	}
 	
+
+	
 	
 	function echoWidget($args, $instance){
 		
@@ -36,6 +38,8 @@ class VikiSpotStreamWidget extends VikiSpotWidget
 		$name = VikiSpotPickName($title, $topPost);
 		$title = VikiSpotPickTopic($title, $topPost);
 		
+		
+		
 		$link = get_permalink();
 		
 		/*
@@ -61,6 +65,10 @@ class VikiSpotStreamWidget extends VikiSpotWidget
 		$this->echoParam("grid", $grid);
 		$this->echoParam("count", $count);
 		$this->echoParam("vsize", $vsize);
+		
+		if(!VikiSpotSubmit()){
+			$this->echoParam("submit", "false");
+		}
 		
 		$this->echoTail();
 		

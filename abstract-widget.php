@@ -50,6 +50,8 @@ class VikiSpotWidget extends WP_Widget
 		return $new_instance;
 	}
 
+
+
 	function form($instance){
 		
 		$instance = $this->setDefault($instance);		

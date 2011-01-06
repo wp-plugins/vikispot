@@ -37,6 +37,8 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		$name = VikiSpotPickName($title, $topPost);
 		$title = VikiSpotPickTopic($title, $topPost);
 		
+	
+		
 		$link = get_permalink();
 		
 		/*
@@ -64,6 +66,10 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		$this->echoParam("vsize", $vsize);
 		
 		$this->echoParam("selected", $selected);
+		
+		if(!VikiSpotSubmit()){
+			$this->echoParam("submit", "false");
+		}
 		
 		$this->echoTail();
 		
