@@ -29,6 +29,8 @@ class VikiSpotStreamWidget extends VikiSpotWidget
 			$label = $title;
 		}
 
+		$label = str_replace('ytchannel:', '', $label);
+
 		echo $before_widget;
 		
 		echo $before_title . '<span class="vs-name">'.$label.'</span>'. $after_title;
