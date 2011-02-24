@@ -113,42 +113,41 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		$displays = array('News', 'Video', 'Blog');
 		
 		
-		$this->makeComboField('selected', 'Selected', $values, $displays, $selected);
+		$this->makeComboField('selected', 'Selected', $values, $displays, $selected, '');
 		
 		$this->makeLanguageBox($lang);
 		
 		$values = array('', '12', '13', '14', '15', '16', '17', '18');
 		$displays = array('Default', '12px', '13px', '14px', '15px', '16px', '17px', '18px');
-		$this->makeComboField('font', 'Font', $values, $displays, $font);
+		$this->makeComboField('font', 'Font', $values, $displays, $font, '');
 		
 		$values = array('0', '80', '120');
 		$displays = array('None', '80px', '120px');
-		$this->makeComboField('imgw', 'Thumbnail', $values, $displays, $imgw);
+		$this->makeComboField('imgw', 'Thumbnail', $values, $displays, $imgw, '');
 		
 		
 		
 		$values = array('1', '2', '3', '4');
 		$displays = array('None', '2 items', '3 items', '4 items');
-		$this->makeComboField('grid', 'Column', $values, $displays, $grid);
+		$this->makeComboField('grid', 'Column', $values, $displays, $grid, '');
 		
 		
 		$values = array('1', '2', '3', '4', '5', '6', '7', '8');
 		$displays = array('1 item', '2 items', '3 items', '4 items', '5 items', '6 items', '7 items', '8 items');
-		$this->makeComboField('line', 'Display Count', $values, $displays, $line);
+		$this->makeComboField('line', 'Display Count', $values, $displays, $line, '');
 		
 		
 		$values = array('1', '2', '3', '4', '5', '6', '7', '8');
 		$displays = array('1 item', '2 items', '3 items', '4 items', '5 items', '6 items', '7 items', '8 items');
-		$this->makeComboField('count', 'Items Count', $values, $displays, $count);
+		$this->makeComboField('count', 'Items Count', $values, $displays, $count, '');
 			
 			
-		$values = array('', '640', '853', '1280');
-		$displays = array('None', '640', '853', '1280');
-		$this->makeComboField('vsize', 'Video Player Size', $values, $displays, $vsize);	
+		$this->makeVideoBox();	
+		
 		
 		$values = array('1', '2', '3', '4', '5', '6', '7', '0');
 		$displays = array('1 line', '2 lines', '3 lines', '4 lines', '5 lines', '6 lines', '7 lines', 'Flexible');
-		$this->makeComboField('desc', 'Summary Height', $values, $displays, $desc);
+		$this->makeComboField('desc', 'Summary Height', $values, $displays, $desc, '');
 		
 		
 		$this->makeCheckField('compact', 'Compact', $compact);
@@ -156,7 +155,7 @@ class VikiSpotContentWidget extends VikiSpotWidget
 		/*
 		$values = array('', 'simple', 'hot-sneaks', 'ui-lightness', 'smoothness', 'start', 'redmond', 'sunny', 'overcast', 'flick', 'pepper-grinder', 'eggplant', 'dark-hive', 'cupertino', 'south-street', 'blitzer', 'humanity', 'excite-bike', 'black-tie' );
 		$displays = array('Parent Page', 'Parent Simple', 'Hot Sneaks', 'Lightness', 'Smoothness', 'Start', 'Redmond', 'Sunny', 'Overcast', 'Flick', 'Pepper Grinder', 'Eggplant', 'Dark Hive', 'Cupertino', 'South Street', 'Blitzer', 'Humanity', 'Excite Bike', 'Black Tie' );		
-		$this->makeComboField('css', 'Style', $values, $displays, $css);
+		$this->makeComboField('css', 'Style', $values, $displays, $css, '');
 		*/
 		
 		

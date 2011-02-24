@@ -91,7 +91,8 @@ class VikiSpotWidget extends WP_Widget
 		echo '</p>';		
 	}
 	
-	function makeComboField($var, $label, $values, $displays, $default){
+	
+	function makeComboField($var, $label, $values, $displays, $default, $desc){
 		
 		echo '<p>';
 		echo '<label for="' . $this->get_field_id($var) . '">'.__($label).'</label>';
@@ -107,6 +108,7 @@ class VikiSpotWidget extends WP_Widget
 		}  
 			
 		echo '</select>';
+		echo $desc;
 		echo '</p>';	
 	}
 
@@ -155,7 +157,13 @@ class VikiSpotWidget extends WP_Widget
 	function makeLanguageBox($lang){
 		$values = array('ar', 'bg', 'ca', 'zh-CN', 'zh-TW', 'hr', 'cs', 'nl', 'en', 'fi', 'fr', 'de', 'el', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'lt', 'no', 'pl', 'ro', 'ru', 'sr', 'sk', 'sl', 'es', 'sv', 'tr');
 		$displays = array('Arabic', 'Bulgarian', 'Catalan', 'Chinese (Simplified)', 'Chinese (Traditional)', 'Croation', 'Czech', 'Dutch', 'English', 'Finnish', 'French', 'German', 'Greek', 'Hungarian', 'Indonesian', 'Italian', 'Japanese', 'Korean', 'Latvian', 'Lithuanian', 'Norwegian', 'Polish', 'Romanian', 'Russian', 'Serbian', 'Slovak', 'Slovenian', 'Spanish', 'Swedish', 'Turkish');		
-		$this->makeComboField('lang', 'Language', $values, $displays, $lang);
+		$this->makeComboField('lang', 'Language', $values, $displays, $lang, '');
+	}
+	
+	function makeVideoBox(){
+		$values = array('', '640', '853', '1280');
+		$displays = array('None', '640', '853', '1280');
+		$this->makeComboField('vsize', 'Popup Video Player Size', $values, $displays, $vsize, '(Video player will not popup if screen size is too small. Out dated browsers, such as IE6 or less, will always go directly to video source.)');		
 	}
 		
 	
