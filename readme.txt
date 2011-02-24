@@ -65,6 +65,9 @@ The image, sidebar, and related articles are all dynamic content. These content 
 
 == Changelog ==
 
+= 2.0.11 =
+Update video player description.
+
 = 2.0.10 =
 Add support to display videos from youtube channel.
 
