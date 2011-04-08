@@ -130,7 +130,8 @@ class VikiSpotWidget extends WP_Widget
 	
 		
 		$help = '<div>Tools &#38; Tips:</div><p>'
-		. '<a title="Help/Feedback" target="_blank" href="http://www.vikispot.com/spot/826993/feedback">Help+Feedback</a>,'
+		. '<a title="Help/Feedback" target="_blank" href="http://www.vikispot.com/spot/826993/feedback">Help+Feedback</a>,'		
+		. '<a href="http://market.android.com/details?id=com.pekca.vikispot.android" target="_blank">Android Reader</a>, '
 		. '<a href="http://www.vikispot.com/widgetmaker" target="_blank">Widget Maker</a>, '
 		. '<a title="Embedding Dynamic Content in your Blog" target="_blank" href="http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog">WP Demo</a> '		
 		. '</p>';
@@ -163,7 +164,7 @@ class VikiSpotWidget extends WP_Widget
 	function makeVideoBox(){
 		$values = array('', '640', '853', '1280');
 		$displays = array('None', '640', '853', '1280');
-		$this->makeComboField('vsize', 'Popup Video Player Size', $values, $displays, $vsize, '(Video player will not popup if screen size is too small. Out dated browsers, such as IE6 or less, will always go directly to video source.)');		
+		$this->makeComboField('vsize', 'Popup Video Player Size', $values, $displays, $vsize, '(Video player will not popup if screen size is too small. Out dated browsers, such as IE6 or less, will always go directly to video source. This is a Beta feature.)');		
 	}
 		
 	

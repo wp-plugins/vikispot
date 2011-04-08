@@ -3,7 +3,7 @@ Contributors: vikispot
 Tags: videos, youtube, widget, content, plugin, sidebar, images, blogs, news, search, google, related, links, Post, posts, page, media, feed
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 2.0.11
+Stable tag: 2.0.12
 
 VikiSpot let you embed related dynamic content, such as related images, videos, news, and blogs to your website.
 
@@ -17,6 +17,8 @@ Demo:
 <li><a title="Widget Maker" href="http://www.vikispot.com/widgetmaker">Live Demo Playground</a></li>
 <li><a title="Multi Languages Demo" href="http://www.vikispot.com/demo/multilang">Multi Languages Demo</a></li>
 <li><a title="Example Sites" href="http://www.vikispot.com/demo/plugin">Example Sites</a></li>
+<li><a title="Android Reader (Uses VikiSpot API)" href="http://market.android.com/details?id=com.pekca.vikispot.android">Android App</a></li>
+
 </ul>
 
 Features:
@@ -64,6 +66,9 @@ The image, sidebar, and related articles are all dynamic content. These content 
 
 
 == Changelog ==
+
+= 2.0.12 =
+Update help text and links.
 
 = 2.0.11 =
 Update video player description.

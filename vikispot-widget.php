@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 2.0.11
+ * Version: 2.0.12
  * Plugin URI: http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog
  * Description: Content Widgets by VikiSpot.
  * Author: VikiSpot
