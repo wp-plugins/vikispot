@@ -1,9 +1,9 @@
 === VikiSpot ===
 Contributors: vikispot
-Tags: videos, youtube, widget, content, plugin, sidebar, images, blogs, news, search, google, related, links, Post, posts, page, media, feed
+Tags: videos, youtube, dynamic, widget, content, plugin, sidebar, images, blogs, news, search, google, related, links, Post, posts, page, media, feed
 Requires at least: 2.8
-Tested up to: 3.1
-Stable tag: 2.0.12
+Tested up to: 3.1.1
+Stable tag: 2.0.13
 
 VikiSpot let you embed related dynamic content, such as related images, videos, news, and blogs to your website.
 
@@ -14,10 +14,11 @@ VikiSpot let you embed related dynamic content, such as related images, videos, 
 Demo:
 <ul>
 <li><a title="Embedding Dynamic Content in your Blog" href="http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog">WordPress Demo</a></li>
+<li><a title="Android Reader (Uses VikiSpot API)" href="http://market.android.com/details?id=com.pekca.vikispot.android">Android App</a></li>
 <li><a title="Widget Maker" href="http://www.vikispot.com/widgetmaker">Live Demo Playground</a></li>
 <li><a title="Multi Languages Demo" href="http://www.vikispot.com/demo/multilang">Multi Languages Demo</a></li>
 <li><a title="Example Sites" href="http://www.vikispot.com/demo/plugin">Example Sites</a></li>
-<li><a title="Android Reader (Uses VikiSpot API)" href="http://market.android.com/details?id=com.pekca.vikispot.android">Android App</a></li>
+
 
 </ul>
 
@@ -66,6 +67,9 @@ The image, sidebar, and related articles are all dynamic content. These content 
 
 
 == Changelog ==
+
+= 2.0.13 =
+Use simple modal script for popup youtube video.
 
 = 2.0.12 =
 Update help text and links.

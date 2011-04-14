@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: VikiSpot
- * Version: 2.0.12
+ * Version: 2.0.13
  * Plugin URI: http://wpdemo.vikispot.com/embedding-dynamic-content-in-your-blog
  * Description: Content Widgets by VikiSpot.
  * Author: VikiSpot
@@ -141,18 +141,21 @@ function VikiSpotScriptsInit(){
 
 	if(!is_admin()){	 
 	
-		//wp_enqueue_script('jquery');
+		wp_enqueue_script('jquery');
 		wp_enqueue_script('jsapi', 'http://www.google.com/jsapi');
 		
 		$debug = $_GET['vsdebug'];
 		
 		if('1' == $debug){
-			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.11', true);
+			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/p/widgetjs', '', '2.0.13', true);
 		}else if('2' == $debug){
-			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/widget/contentv2.js', '', '2.0.11', true);
+			wp_enqueue_script('contentv2.js', 'http://vikispottest.dyndns-ip.com/widget/contentv2.js', '', '2.0.13', true);
 		}else{
-			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.11', true);
+			wp_enqueue_script('contentv2.js', 'http://api.vikispot.com/widget/contentv2.js', '', '2.0.13', true);
 		}
+		 
+		
+		wp_enqueue_script('simple_modal', plugins_url('/jquery.simplemodal.1.4.1.min.js', __FILE__), '', '2.0.13', true);
 		 
 		
 	}
