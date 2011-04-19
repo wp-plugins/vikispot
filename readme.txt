@@ -3,7 +3,7 @@ Contributors: vikispot
 Tags: videos, youtube, dynamic, widget, content, plugin, sidebar, images, blogs, news, search, google, related, links, Post, posts, page, media, feed
 Requires at least: 2.8
 Tested up to: 3.1.1
-Stable tag: 2.0.13
+Stable tag: 2.0.14
 
 VikiSpot let you embed related dynamic content, such as related images, videos, news, and blogs to your website.
 
@@ -67,6 +67,9 @@ The image, sidebar, and related articles are all dynamic content. These content 
 
 
 == Changelog ==
+
+= 2.0.14 =
+Fix flash popup player covered by google ads issue.
 
 = 2.0.13 =
 Use simple modal script for popup youtube video.
